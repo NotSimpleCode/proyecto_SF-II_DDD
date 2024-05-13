@@ -1,24 +1,11 @@
 server:
   port: 8080
-message: Este es un mensaje de prueba
 spring:
   application:
-    name: UserManagementService
-  cloud:
-    config:
-      name: microservices-config 
-      uri: http://localhost:8888/ 
-      username: config_user
-      password: config_user
-  rabbitmq:
-      host: localhost
-      port: 15672
-      virtual-host: /
-      username: guest
-      password: guest
-  profiles:
-      active: PROD
+    name: ShiftsManagementService
   data:
+
+
     mongodb:
       database: microservice
       host: localhost
@@ -26,7 +13,4 @@ spring:
       repositories:
         type: auto
       uri: mongodb://localhost:27017/microservice.appusers
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+
