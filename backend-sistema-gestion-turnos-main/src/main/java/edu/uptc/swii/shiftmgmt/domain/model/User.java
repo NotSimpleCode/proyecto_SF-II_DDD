@@ -1,54 +1,52 @@
 package edu.uptc.swii.shiftmgmt.domain.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
-@Table(name ="usuarios")
+@Table(name ="users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter
-    private Integer id;
+    private Integer user_id;
     @Getter @Setter
-    private String name;
+    private String user_first_name;
     @Getter @Setter
-    private String lastName;
+    private String user_last_name;
     @Getter @Setter
-    private String typeDocument;
+    private String user_address;
     @Getter @Setter
-    private String document;
+    private String user_email;
     @Getter @Setter
-    private String addres;
+    private String user_organization;
     @Getter @Setter
-    private String email;
+    private String user_type;
     @Getter @Setter
-    private String celphone;
-    @Getter @Setter
-    private String typeUser;
-    @Getter @Setter
-    private Set<String> roles;
+    private Set<String> user_roles;
 
     @OneToOne
-    @JoinColumn(name = "id_credencial")
+    @JoinColumn(name = "credential_id")
     private Credentials credentials;
 
-    public User(String name, String lastName, String typeDocument, String document, String addres,
-            String email, String celphone, String typeUser, Credentials credentials) {
-        this.name = name;
-        this.lastName = lastName;
-        this.typeDocument = typeDocument;
-        this.document = document;
-        this.addres = addres;
-        this.email = email;
-        this.celphone = celphone;
-        this.typeUser = typeUser;
+    public User(Integer user_id, String user_first_name, String user_last_name, String user_address, String user_email,
+            String user_organization, String user_type, Credentials credentials) {
+        this.user_id = user_id;
+        this.user_first_name = user_first_name;
+        this.user_last_name = user_last_name;
+        this.user_address = user_address;
+        this.user_email = user_email;
+        this.user_organization = user_organization;
+        this.user_type = user_type;
         this.credentials = credentials;
     }
 
+    public User() {
+    }
+
+    
     
 }

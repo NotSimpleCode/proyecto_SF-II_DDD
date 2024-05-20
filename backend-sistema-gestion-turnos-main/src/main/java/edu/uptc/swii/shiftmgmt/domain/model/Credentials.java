@@ -11,16 +11,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "credenciales")
+@Table(name = "credentials")
 public class Credentials {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter
-    private Integer id;
+    private Integer credential_id;
     @Getter @Setter
-    private String password;
+    private String credential_password;
     @Getter @Setter
-    private String token;
+    private String credential_token;
 
     @OneToOne(mappedBy = "credentials", cascade = CascadeType.ALL)
     private User user;

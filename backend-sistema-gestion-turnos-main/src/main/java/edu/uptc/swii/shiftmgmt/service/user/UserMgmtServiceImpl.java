@@ -1,4 +1,6 @@
-package edu.uptc.swii.shiftmgmt.service;
+package edu.uptc.swii.shiftmgmt.service.user;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,15 +17,21 @@ public class UserMgmtServiceImpl implements UserMgmtService{
     UserRepository userRepo;
     @Autowired
     CredentialRepository credRepo;
-
+    
     @Override
     public void saveUser(User user){
         userRepo.save(user);
+
     }
 
     @Override
     public void saveCredential(Credentials credentials) {
         credRepo.save(credentials);
+    }
+
+    @Override
+    public List<User> listAllUser() {
+        return userRepo.findAll();
     }
 
     // @Override
